@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class="visually-hidden">The latest movies site</h1>
+    
+    <!-- Header -->
+    <header class="header fixed-top">
+        
+        <!-- Nav -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+            <div class="container">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./img/logo.svg" alt="Logo" width="120" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 text-uppercase">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">In Theaters</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Educational</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Press</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Social</a>
+                        </li>
+                    </ul>
+                    <form class="form d-flex">
+                        <select class="form-select">
+                        </select>
+                        <button class="form-button btn btn-danger" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- / Nav  -->
+
+    </header>
+    <!-- / Header -->
+    
+    <!-- Main -->
+    <main class="main">
+        
+        <!-- Hero Section -->
+        <section class="hero py-5">
+            
+            <div class="container">
+
+                <h2 class="visually-hidden">Films list</h2>
+                <ul class="film-list"></ul>
+                
+            </div>
+            
+        </section>
+        <!-- / Hero Section -->
+        
+    </main>
+    <!-- / Main -->
+    
+    <!-- Footer -->
+    <footer class="footer bg-dark py-5">
+        <div class="container d-flex justify-content-center justify-content-sm-between">
+            <div class="d-flex flex-column align-items-center align-items-sm-start">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./img/logo.svg" alt="Logo" width="120" height="40">
+                </a>
+                
+                <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 text-uppercase">
+                    <li class="nav-item text-center text-sm-start">
+                        <a class="nav-link text-muted" href="#">In Theaters</a>
+                    </li>
+                    <li class="nav-item text-center text-sm-start">
+                        <a class="nav-link text-muted" href="#">Our Films</a>
+                    </li>
+                    <li class="nav-item text-center text-sm-start">
+                        <a class="nav-link text-muted" href="#">Exhibitor Information</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav d-none d-sm-block">
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Home Entertainment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Home DVD & Blu-ray</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Order Catalog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Customer Service</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-none d-sm-block">
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">In Theaters</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Educational</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Press</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-none d-md-block">
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">In Theaters</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Educational</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Press</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-none d-lg-block">
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Educational</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Press</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">Social</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-muted" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <!-- / Footer -->
+    
+    <script src="./css/bootstrap/js/bootstrap.js"></script>
+    <script src="./js/films.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
