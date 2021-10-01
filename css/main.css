@@ -32,9 +32,12 @@ body {
 }
 
 .film-item {
+    position: relative;
     width: 264px;
     padding: 15px;
-    background-color: rgba(240, 163, 19, .7);
+    padding-bottom: 50px;
+    background-color: rgba(0, 0, 0, .8);
+    color: orange;
     border-radius: 6px;
 }
 
@@ -75,6 +78,13 @@ body {
     font-size: 14px;
 }
 
+.film-time {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: orangered;
+}
+
 @media only screen and (max-width: 1200px) {
     .film-list {
         column-gap: 2%;
@@ -83,11 +93,13 @@ body {
     .film-item {
         display: flex;
         width: 49%;
+        padding-bottom: 30px;
     }
 
     .film-img {
         width: 200px;
         margin-right: 20px;
+        margin-bottom: 0;
     }
 
     .film-heading {
@@ -98,6 +110,7 @@ body {
 @media only screen and (max-width: 991px) {
     .film-item {
         display: block;
+        padding-bottom: 50px;
     }
 
     .film-img {

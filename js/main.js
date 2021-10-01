@@ -33,8 +33,8 @@ function selectFilm(arr, toElement) {
             var elItem = document.createElement('li'),
                 elItemLeft = document.createElement('div'),
                 elImg = document.createElement('img'),
-                elHeading = document.createElement('h3'),
                 elItemRight = document.createElement('div'),
+                elHeading = document.createElement('h3'),
                 elParagraph = document.createElement('p'),
                 elGenreHeading = document.createElement('h4'),
                 elGenreList = document.createElement('ul'),
@@ -60,7 +60,7 @@ function selectFilm(arr, toElement) {
                 elGenreList.appendChild(elGenreItem);
             })
             elTime.textContent = normalizeDate(film.release_date);
-            
+            elTime.setAttribute('class', 'film-time');
             
             elItemLeft.appendChild(elImg);
             elItemRight.appendChild(elHeading);
