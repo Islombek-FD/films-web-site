@@ -118,6 +118,10 @@ body {
         height: 300px;
         margin-bottom: 15px;
     }
+
+    .film-heading {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 576px) {
