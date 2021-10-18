@@ -1,84 +1,69 @@
-'use strict';
-var elForm = document.querySelector('.form'),
-    elSelect = document.querySelector('.form-select'),
-    elButton = document.querySelector('.form-button'),
-    elList = document.querySelector('.film-list'); 
+const elForm = document.querySelector('.form');
+const elSelect = document.querySelector('.form-select');
+const elButton = document.querySelector('.form-button');
+const elList = document.querySelector('.film-list');
+const elFilmItemTemplate = document.querySelector('.film-item__template').content;
 
 function normalizeDate(element) {
-    var date = new Date(element),
-    year = date.getFullYear(),
-    month = String(date.getMonth() + 1).padStart(2, 0),
-    day = String(date.getDate()).padStart(2, 0);
+    const date = new Date(element);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, 0);
+    const day = String(date.getDate()).padStart(2, 0);
     
     return `${day}.${month}.${year}`;
 }
 
-
-films.forEach((film) => {
-    film.genres.forEach((genre) => {
+films.forEach(film => {
+    film.genres.forEach(genre => {
         if (!elSelect.textContent.includes(genre)) {
             var elOption = document.createElement('option');
             elOption.setAttribute('class', 'form-option');
+            elOption.value = genre;
             elOption.textContent = genre;
             elSelect.appendChild(elOption);
         }
     })
 })
 
-function selectFilm(arr, toElement) {
-    toElement.innerHTML = null;
-    arr.forEach((film) => {
-        
-        if (film.genres.includes(elSelect.value)) {
-            var elItem = document.createElement('li'),
-                elItemLeft = document.createElement('div'),
-                elImg = document.createElement('img'),
-                elItemRight = document.createElement('div'),
-                elHeading = document.createElement('h3'),
-                elParagraph = document.createElement('p'),
-                elGenreHeading = document.createElement('h4'),
-                elGenreList = document.createElement('ul'),
-                elTime = document.createElement('time');
-                
-            elItem.setAttribute('class', 'film-item');
-            elHeading.textContent = film.title;
-            elHeading.setAttribute('class', 'film-heading');
-            elImg.setAttribute('src', film.poster);
-            elImg.setAttribute('class', 'film-img');
-            elImg.setAttribute('width', '230');
-            elImg.setAttribute('height', '250');
-            elImg.setAttribute('alt', `${film.title} film image`);
-            elParagraph.textContent = film.overview.split(' ').slice(0, 20).join(' ');
-            elParagraph.setAttribute('class', 'film-description');
-            elGenreHeading.textContent = 'Genres Types';
-            elGenreHeading.setAttribute('class', 'film-genres__heading');
-            elGenreList.setAttribute('class', 'film-genres');
-            film.genres.forEach((genre) => {
-                var elGenreItem = document.createElement('li');
-                elGenreItem.setAttribute('class', 'film-genre');
-                elGenreItem.textContent = genre;
-                elGenreList.appendChild(elGenreItem);
-            })
-            elTime.textContent = normalizeDate(film.release_date);
-            elTime.setAttribute('class', 'film-time');
+function selectFilm(arr, node) {
+    node.innerHTML = null;
+
+    const filmsFragment = document.createDocumentFragment();
+
+    arr.forEach(film => {
+        const elFilmItemTemplateClone = elFilmItemTemplate.cloneNode(true);
             
-            elItemLeft.appendChild(elImg);
-            elItemRight.appendChild(elHeading);
-            elItemRight.appendChild(elParagraph);
-            elItemRight.appendChild(elGenreHeading);
-            elItemRight.appendChild(elGenreList);
-            elItemRight.appendChild(elTime);
+        elFilmItemTemplateClone.querySelector('.film-heading').textContent = film.title;
+        elFilmItemTemplateClone.querySelector('.film-img').src = film.poster;
+        elFilmItemTemplateClone.querySelector('.film-img').alt = `${film.title} film image`;
+        elFilmItemTemplateClone.querySelector('.film-description').textContent = film.overview.split(' ').slice(0, 20).join(' ');
 
-            elItem.appendChild(elItemLeft);
-            elItem.appendChild(elItemRight);
-
-            toElement.appendChild(elItem);
-        }
+        film.genres.forEach(genre => {
+            const elGenreItem = document.createElement('li');
+            elGenreItem.setAttribute('class', 'film-genre');
+            elGenreItem.textContent = genre;
+            elFilmItemTemplateClone.querySelector('.film-genres').appendChild(elGenreItem);
+        })
+        elFilmItemTemplateClone.querySelector('.film-time').textContent = normalizeDate(film.release_date);
+        
+        
+        filmsFragment.appendChild(elFilmItemTemplateClone);
     })
+
+    node.appendChild(filmsFragment);
 }
 selectFilm(films, elList);
 
-elForm.addEventListener('submit', function(evt) {
+elForm.addEventListener('submit', evt => {
     evt.preventDefault();
-    selectFilm(films, elList);
+    const genreValue = elSelect.value;
+    
+    let filteredFilms = [];
+    if (genreValue === 'All') {
+        filteredFilms = films;
+    }
+    else {
+        filteredFilms = films.filter(film => film.genres.includes(genreValue))
+    }
+    selectFilm(filteredFilms, elList);
 })

@@ -44,6 +44,7 @@
                     </ul>
                     <form class="form d-flex">
                         <select class="form-select">
+                            <option value="All">All</option>
                         </select>
                         <button class="form-button btn btn-danger" type="submit">Submit</button>
                     </form>
@@ -153,6 +154,33 @@
         </div>
     </footer>
     <!-- / Footer -->
+
+
+    <!-- Film Item Template -->
+    <template class="film-item__template">
+
+        <li class="film-item">
+
+            <div class="film-item__left">
+
+                <img class="film-img" src="" alt="Shazam" width="230" height="250">
+
+            </div>
+
+            <div class="film-item__right">
+
+                <h3 class="film-heading">Shazam</h3>
+                <p class="film-description">About shazam film</p>
+                <h4 class="film-genres__heading">Genres Types</h4>
+                
+                <ul class="film-genres"></ul>
+
+                <time class="film-time">12.02.1987</time>
+
+            </div>
+        </li>
+        
+    </template>
     
     <script src="./css/bootstrap/js/bootstrap.js"></script>
     <script src="./js/films.js"></script>
